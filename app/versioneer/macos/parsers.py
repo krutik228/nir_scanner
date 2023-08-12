@@ -1,5 +1,5 @@
 import re
-from typing import Tuple, Dict, Any
+from typing import Dict
 
 
 def google_parser(raw_version: str) -> Dict[str, str]:

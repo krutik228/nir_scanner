@@ -1,6 +1,5 @@
-from typing import Callable, Union, Dict, Sequence
+from typing import Dict
 
-from pydantic.typing import PathLike
 
 from app.versioneer.macos.parsers import google_parser
 

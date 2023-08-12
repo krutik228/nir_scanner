@@ -1,5 +1,4 @@
-from abc import ABC, abstractmethod
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, List
 
 from app.detector.base import BaseDetector
 from app.detector.queries import QUERIES

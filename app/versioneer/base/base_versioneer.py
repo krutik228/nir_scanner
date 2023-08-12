@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Dict, Optional, List, Any
+from typing import Dict, Any
 
 
 class BaseVersioneer(ABC):

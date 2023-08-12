@@ -1,10 +1,7 @@
-from enum import Enum
 from typing import Optional
 
-from app.detector.base import BaseDetector
 from app.detector.base.detector import Detector
 
-# from app.detector.base import BaseDetector
 from app.externals.hooks import ClickHouseHook, BaseHook
 from app.scanner.base import Scanner
 from app.spider.base import BaseSpider

@@ -1,10 +1,8 @@
-import os
 import subprocess
-from typing import Dict, Optional, Any, Callable
+from typing import Dict, Optional, Callable
 
 from app.versioneer.base.base_versioneer import BaseVersioneer
 from app.versioneer.macos.commander import SOFT_VERSION_PARSER
-from app.versioneer.macos.consts import COMMAND_TEMPLATE, SOFT_LIST
 
 
 class MacOsVersioneer(BaseVersioneer):

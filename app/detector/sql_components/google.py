@@ -1,6 +1,6 @@
-from typing import List, Any
+from typing import List
 
-from app.models import Vulnerability, Cve
+from app.models import Cve
 from app.externals.sql_components.sql_component import SqlDataComponent
 
 

@@ -1,5 +1,5 @@
 from abc import abstractmethod, ABC
-from typing import Any, List
+from typing import List
 
 from app.models import Cve
 

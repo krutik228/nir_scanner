@@ -1,5 +1,5 @@
 import logging
-from typing import Any, Generic, Optional, TypeVar, Literal
+from typing import Any, Generic, Optional, TypeVar
 
 from flask import Response, jsonify
 from pydantic import BaseModel, Field, ValidationError

@@ -1,6 +1,6 @@
 import click
 
-from app.cabinet.api import create_app, add_blueprints
+from app.cabinet.api import create_app
 from app.cabinet.api.consts import DOC_PREFIX
 from app.config import Config
 from app.utils.gunicorn import GunicornServer
