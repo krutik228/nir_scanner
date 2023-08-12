@@ -3,7 +3,6 @@ from typing import List, Any, Dict
 
 
 class BaseHook(ABC):
-
     name: str
 
     @abstractmethod

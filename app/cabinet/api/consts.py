@@ -1,0 +1,7 @@
+SERVICE_NAME = "cabinet"
+SERVICE_URL_PREFIX = "/cabinet"
+ROOT_PATH = SERVICE_URL_PREFIX + "/api"
+DOC_PATH = SERVICE_NAME + "/doc"
+DOC_PREFIX = SERVICE_URL_PREFIX + "/doc"
+
+SCANNER_TAG = "Application Scanner"

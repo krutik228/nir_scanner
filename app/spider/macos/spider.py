@@ -10,8 +10,8 @@ class MacOsSpider(BaseSpider):
     def parse(self) -> List[str]:
         soft_list = []
         os.chdir(APPLICATIONS_PATH)
-        for application in glob('*.app'):
-            application = application.rstrip('.app')
+        for application in glob("*.app"):
+            application = application.rstrip(".app")
             self._soft_set.add(application)
             soft_list.append(application)
         return soft_list

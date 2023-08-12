@@ -7,8 +7,7 @@ from app.utils.get_ch_client import get_ch_client
 
 
 class ClickHouseHook(BaseHook):
-
-    name = 'Clickhouse'
+    name = "Clickhouse"
 
     def __init__(self):
         self.ch_client: Optional[Client] = None

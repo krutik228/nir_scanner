@@ -1,1 +1,1 @@
-APPLICATIONS_PATH = '/Applications'
+APPLICATIONS_PATH = "/Applications"

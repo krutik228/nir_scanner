@@ -1,7 +1,7 @@
-from app.detector.sqls import GOOGLE_CLICKHOUSE
+from app.detector.sql_components.google import GoogleClickhouseDataSqlComponent
 
 QUERIES = {
-    'Google Chrome': {
-        'Clickhouse': GOOGLE_CLICKHOUSE,
+    "Google Chrome": {
+        "Clickhouse": GoogleClickhouseDataSqlComponent,
     }
 }
