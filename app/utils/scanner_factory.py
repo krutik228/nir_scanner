@@ -6,6 +6,7 @@ from app.externals.hooks import ClickHouseHook, BaseHook
 from app.scanner.base import Scanner
 from app.spider.base import BaseSpider
 from app.spider.macos import MacOsSpider
+from app.utils.exceptions import ScannerFactoryError
 from app.versioneer.base import BaseVersioneer
 from app.versioneer.macos import MacOsVersioneer
 
@@ -22,20 +23,13 @@ VERSIONEERS = {
 }
 
 
-def scanner_factory(
-    os: str,
-    hook: Optional[str] = None,
-    spider: Optional[str] = None,
-    versioneer: Optional[str] = None,
-):
-    _hook: Optional[BaseHook] = HOOKS.get(hook) if hook else HOOKS.get(os)
-    _spider: Optional[BaseSpider] = SPIDERS.get(spider) if spider else SPIDERS.get(os)
-    _versioneer: Optional[BaseVersioneer] = (
-        VERSIONEERS.get(versioneer) if versioneer else VERSIONEERS.get(os)
-    )
+def scanner_factory(os: str, hook: str):
+    _hook: Optional[BaseHook] = HOOKS.get(hook)
+    _spider: Optional[BaseSpider] = SPIDERS.get(os)
+    _versioneer: Optional[BaseVersioneer] = VERSIONEERS.get(os)
 
     if not all([_hook, _spider, _versioneer]):
-        raise ValueError("Hook, spider or versioneer are not defined")
+        raise ScannerFactoryError("Hook, spider or versioneer are not defined")
 
     detector = Detector(_hook)
     return Scanner(

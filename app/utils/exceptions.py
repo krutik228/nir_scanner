@@ -1,0 +1,2 @@
+class ScannerFactoryError(Exception):
+    pass

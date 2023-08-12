@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 from pydantic import BaseModel
 
@@ -6,7 +6,8 @@ from pydantic import BaseModel
 class Cve(BaseModel):
     cve_id: str
     soft: str
-    description: str
+    description: Optional[str]
+    severity: float
 
 
 class Vulnerability(BaseModel):
