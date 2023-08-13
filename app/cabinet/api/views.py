@@ -7,7 +7,8 @@ from app.cabinet.api.swagger import swagger
 from app.common.api.protocols import (
     ErrorResponseProtocol,
     OkResponseProtocol,
-    make_ok_response, make_error_response,
+    make_ok_response,
+    make_error_response,
 )
 from app.models import Vulnerability
 from app.utils.exceptions import ScannerFactoryError, VersionNotFound

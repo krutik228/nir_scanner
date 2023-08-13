@@ -14,4 +14,4 @@ def google_command(soft: str) -> Dict[str, str]:
     if matched:
         return {"version": matched.group("version")}
 
-    raise VersionNotFound(f'Version not found for {soft}')
+    raise VersionNotFound(f"Version not found for {soft}")

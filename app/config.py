@@ -8,6 +8,7 @@ class Config:
     """
     Класс с конфигурациями
     """
+
     CH_CALCULATOR_HOST = getenv("CH_CALCULATOR_SERVER", "localhost")
     CH_CALCULATOR_PORT = int(getenv("CH_CALCULATOR_PORT", "9000"))
     CH_CALCULATOR_USERNAME = getenv("CH_CALCULATOR_USER", "default")

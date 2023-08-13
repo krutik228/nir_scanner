@@ -14,12 +14,18 @@ class GoogleClickhouseDataSqlComponent(SqlDataComponent):
         """
         return query
 
-    def adapt_sql_result(self, raw_rows: List[Tuple[str, str, float]], soft: str) -> List[Cve]:
+    def adapt_sql_result(
+        self, raw_rows: List[Tuple[str, str, float]], soft: str
+    ) -> List[Cve]:
         rows = []
         for row in raw_rows:
             cve_id, description, severity = row
-            cve = Cve(cve_id=cve_id, description=description, severity=round(severity, 1), soft=soft)
+            cve = Cve(
+                cve_id=cve_id,
+                description=description,
+                severity=round(severity, 1),
+                soft=soft,
+            )
             rows.append(cve)
 
         return rows
-
