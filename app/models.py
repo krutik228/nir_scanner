@@ -12,6 +12,7 @@ class Cve(BaseModel):
 
 class Vulnerability(BaseModel):
     cve_list: List[Cve]
+    found: int
 
 
 class Exx(BaseModel):

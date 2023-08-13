@@ -10,5 +10,5 @@ class SqlDataComponent(ABC):
         ...
 
     @abstractmethod
-    def adapt_sql_result(self, raw_rows) -> List[Cve]:
+    def adapt_sql_result(self, raw_rows, soft) -> List[Cve]:
         ...

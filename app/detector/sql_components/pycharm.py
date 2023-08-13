@@ -4,11 +4,11 @@ from app.models import Cve
 from app.externals.sql_components.sql_component import SqlDataComponent
 
 
-class DockerClickhouseDataSqlComponent(SqlDataComponent):
+class PycharmClickhouseDataSqlComponent(SqlDataComponent):
     def get_sql(self) -> str:
         query = """
             SELECT cve_id, description, ceil(severity, 1) AS severity
-            FROM db_scanner.docker g 
+            FROM db_scanner.pycharm p
             WHERE version_from <= %(version)s 
                 AND %(version)s  <= version_to 
         """
@@ -22,4 +22,3 @@ class DockerClickhouseDataSqlComponent(SqlDataComponent):
             rows.append(cve)
 
         return rows
-
