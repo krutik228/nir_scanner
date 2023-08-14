@@ -10,7 +10,6 @@ class MacOsVersioneer(BaseVersioneer):
         if app_name in SOFT_REGISTRY and SOFT_REGISTRY.get(app_name):
             command: Callable = SOFT_REGISTRY[app_name]
             version_info: Dict[str, str] = command(app_name)
-            print(version_info)
             self.normalize_version_info(version_info)
             return version_info
 
