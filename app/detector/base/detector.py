@@ -26,8 +26,8 @@ class Detector(BaseDetector):
             sql_component: SqlDataComponent = SQL_COMPONENTS[soft][self.hook_name]()
             try:
                 raw_rows = self.hook.execute(query=sql_component.get_sql(), params=params)
-            except ServerException:
-                raise DataBaseError(f'Database error for {soft}')
+            except ServerException as error:
+                raise DataBaseError(error.message)
             cves = sql_component.adapt_sql_result(raw_rows, soft)
             return cves
 

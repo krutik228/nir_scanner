@@ -9,8 +9,8 @@ class PycharmClickhouseDataSqlComponent(SqlDataComponent):
         query = """
             SELECT cve_id, description, ceil(severity, 1) AS severity
             FROM db_scanner.pycharm p
-            WHERE version_from <= %(version)s 
-                AND %(version)s  <= version_to 
+            WHERE v1_ge_v2(%(version)s, version_from)
+                AND v1_ge_v2(version_to, %(version)s)
         """
         return query
 

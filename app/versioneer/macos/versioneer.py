@@ -9,5 +9,15 @@ class MacOsVersioneer(BaseVersioneer):
     def get_version_info(self, app_name) -> Optional[Dict[str, str]]:
         if app_name in SOFT_REGISTRY and SOFT_REGISTRY.get(app_name):
             command: Callable = SOFT_REGISTRY[app_name]
-            version_info = command(app_name)
+            version_info: Dict[str, str] = command(app_name)
+            print(version_info)
+            self.normalize_version_info(version_info)
             return version_info
+
+    @staticmethod
+    def normalize_version_info(version_dict: Dict[str, str]) -> Dict[str, str]:
+        version = version_dict.get('version')
+        if version:
+            version_dict['version'] = version.replace('-', '.')
+        return version_dict
+
