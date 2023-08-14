@@ -1,5 +1,6 @@
 from typing import Dict, Type
 
+from app.detector.sql_components.dbeaver import DBeaverClickhouseDataSqlComponent
 from app.detector.sql_components.docker import DockerClickhouseDataSqlComponent
 from app.detector.sql_components.google import GoogleClickhouseDataSqlComponent
 from app.detector.sql_components.openvpn_connect import (
@@ -20,6 +21,9 @@ SQL_COMPONENTS: Dict[str, Dict[str, Type[SqlDataComponent]]] = {
     },
     "PyCharm": {
         "Clickhouse": PycharmClickhouseDataSqlComponent,
+    },
+    "DBeaver": {
+        "Clickhouse": DBeaverClickhouseDataSqlComponent,
     },
 }
 

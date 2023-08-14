@@ -11,7 +11,7 @@ from app.common.api.protocols import (
     make_error_response,
 )
 from app.models import Vulnerability
-from app.utils.exceptions import ScannerFactoryError, VersionNotFound
+from app.utils.exceptions import ScannerFactoryError, VersionNotFound, DataBaseError
 from app.utils.scanner_factory import scanner_factory
 
 
@@ -30,7 +30,7 @@ def scan_system(query: ScanQuery) -> FlaskResponse:
     try:
         scanner = scanner_factory(os=query.os, hook=query.database)
         data = scanner.scan()
-    except (ScannerFactoryError, VersionNotFound) as error:
+    except (ScannerFactoryError, VersionNotFound, DataBaseError) as error:
         return make_error_response(status_code=500, message=error.__str__())
 
     return make_ok_response(data_model=data, status_code=200)

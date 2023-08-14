@@ -1,3 +1,6 @@
+from clickhouse_driver.errors import ServerException
+
+
 class ScannerFactoryError(Exception):
     pass
 
@@ -7,4 +10,8 @@ class DetectError(Exception):
 
 
 class VersionNotFound(DetectError):
+    pass
+
+
+class DataBaseError(ServerException):
     pass

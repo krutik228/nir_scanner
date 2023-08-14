@@ -1,5 +1,5 @@
 import re
-from typing import Dict, Optional
+from typing import Dict
 
 from app.utils.exceptions import VersionNotFound
 from app.versioneer.utils import subprocess_run
