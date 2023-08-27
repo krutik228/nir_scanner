@@ -19,8 +19,6 @@ from app.utils.scanner_factory import scanner_factory
     query=ScanQuery,
     resp=Response(
         HTTP_200=OkResponseProtocol[Vulnerability],
-        # HTTP_404=ErrorResponseProtocol,
-        # HTTP_400=ErrorResponseProtocol,
         HTTP_422=ErrorResponseProtocol,
         HTTP_500=ErrorResponseProtocol,
     ),

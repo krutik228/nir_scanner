@@ -27,4 +27,5 @@ class Scanner(BaseScanner):
             cves = self.detector.detect(soft=app, params=version)
             if cves:
                 vulnerabilities.extend(cves)
+
         return Vulnerability(cve_list=vulnerabilities, found=len(vulnerabilities))

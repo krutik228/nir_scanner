@@ -10,7 +10,8 @@ class DBeaverClickhouseDataSqlComponent(SqlDataComponent):
             SELECT cve_id, description, ceil(severity, 1) AS severity
             FROM db_scanner.dbeaver d 
             WHERE v1_ge_v2(%(version)s, version_from)
-                AND v1_ge_v2(version_to, %(version)s)  
+                AND v1_ge_v2(version_to, %(version)s)
+                AND os = %(os)s
         """
         return query
 

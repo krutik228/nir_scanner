@@ -11,6 +11,7 @@ class OpenVPNConnectClickhouseDataSqlComponent(SqlDataComponent):
             FROM db_scanner.openvpn_connect g 
             WHERE v1_ge_v2(%(version)s, version_from)
                 AND v1_ge_v2(version_to, %(version)s)
+                AND os = %(os)s
         """
         return query
 

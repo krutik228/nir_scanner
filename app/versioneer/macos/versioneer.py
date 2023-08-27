@@ -7,16 +7,17 @@ from app.versioneer.macos.commanders import SOFT_REGISTRY
 
 class MacOsVersioneer(BaseVersioneer):
     def get_version_info(self, app_name) -> Optional[Dict[str, str]]:
-        if app_name in SOFT_REGISTRY and SOFT_REGISTRY.get(app_name):
+        if SOFT_REGISTRY.get(app_name):
             command: Callable = SOFT_REGISTRY[app_name]
-            version_info: Dict[str, str] = command(app_name)
-            self.normalize_version_info(version_info)
-            return version_info
+            params: Dict[str, str] = command(app_name)
+            self._adapt_params(params)
+            return params
 
     @staticmethod
-    def normalize_version_info(version_dict: Dict[str, str]) -> Dict[str, str]:
-        version = version_dict.get('version')
+    def _adapt_params(params: Dict[str, str]) -> Dict[str, str]:
+        params['os'] = 'MacOs'
+        version = params.get('version')
         if version:
-            version_dict['version'] = version.replace('-', '.')
-        return version_dict
+            params['version'] = version.replace('-', '.')
+        return params
 

@@ -14,4 +14,5 @@ class MacOsSpider(BaseSpider):
             application = application.rstrip(".app")
             self._soft_set.add(application)
             soft_list.append(application)
+
         return soft_list
