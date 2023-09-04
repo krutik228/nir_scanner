@@ -6,9 +6,11 @@ from app.externals.hooks import ClickHouseHook, BaseHook
 from app.scanner.base import Scanner
 from app.spider.base import BaseSpider
 from app.spider.macos import MacOsSpider
+from app.spider.windows import WindowsSpider
 from app.utils.exceptions import ScannerFactoryError
 from app.versioneer.base import BaseVersioneer
 from app.versioneer.macos import MacOsVersioneer
+from app.versioneer.windows import WindowsVersioneer
 
 HOOKS = {
     "Clickhouse": ClickHouseHook(),
@@ -16,10 +18,12 @@ HOOKS = {
 
 SPIDERS = {
     "MacOs": MacOsSpider(),
+    "Windows": WindowsSpider(),
 }
 
 VERSIONEERS = {
     "MacOs": MacOsVersioneer(),
+    "Windows": WindowsVersioneer(),
 }
 
 

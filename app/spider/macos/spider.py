@@ -11,7 +11,7 @@ class MacOsSpider(BaseSpider):
         soft_list = []
         os.chdir(APPLICATIONS_PATH)
         for application in glob("*.app"):
-            application = application.rstrip(".app")
+            application = application.replace(".app", '')
             self._soft_set.add(application)
             soft_list.append(application)
 
