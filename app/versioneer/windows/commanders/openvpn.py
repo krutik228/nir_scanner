@@ -5,7 +5,10 @@ from app.utils.exceptions import VersionNotFound
 from app.versioneer.utils import powershell_subprocess_run
 
 command = (
-r'$OpenVPN = Get-ChildItem -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall","HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall" | Get-ItemProperty | Where-Object {$_.DisplayName -match "OpenVPN" } | Select-Object -Property DisplayName, DisplayVersion, PSChildName; $OpenVPN.DisplayVersion'
+    r'$OpenVPN = Get-ChildItem -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall",'
+    r'"HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall" '
+    r'| Get-ItemProperty | Where-Object {$_.DisplayName -match "OpenVPN" } '
+    r'| Select-Object -Property DisplayName, DisplayVersion, PSChildName; $OpenVPN.DisplayVersion'
 )
 pattern = re.compile(r'(?P<version>[0-9\.]+)').match
 
